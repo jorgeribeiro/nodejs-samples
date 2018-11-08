@@ -1,2 +1,3 @@
-# nodejs-samples
-Code samples
+# Node.js code samples
+
+A few code samples made with Node.js 8.x.x
