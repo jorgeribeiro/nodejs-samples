@@ -12,7 +12,7 @@ var config = require('./config');
 var fs = require('fs');
 
 // Instantiate the HTTP server
-var httpServer = http.createServer(function (req, res) {
+var httpServer = http.createServer(function(req, res) {
     unifiedServer(req, res);
 });
 
@@ -32,7 +32,7 @@ var httpsServer = https.createServer(httpsServerOptions, function(req, res) {
 });
 
 // Start the HTTPs
-httpsServer.listen(config.httpsPort, function () {
+httpsServer.listen(config.httpsPort, function() {
     console.log('The HTTPs server is listening on port ' + config.httpsPort);
 });
 
@@ -64,7 +64,7 @@ var unifiedServer = function(req, res) {
         buffer += decoder.end();
 
         // Choose the handler this request should go to
-        var chosenHandler = typeof (router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
+        var chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
 
         // Construct the data object to send to the handler
         var data = {
@@ -76,12 +76,12 @@ var unifiedServer = function(req, res) {
         };
 
         // Route the request to the handler specified in the router
-        chosenHandler(data, function (statusCode, payload) {
+        chosenHandler(data, function(statusCode, payload) {
             // Use the status code returned from the handler, or set the default status code to 200
-            statusCode = typeof (statusCode) == 'number' ? statusCode : 200;
+            statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
 
             // Use the payload returned from the handler, or set the default payload to an empty object
-            payload = typeof (payload) == 'object' ? payload : {};
+            payload = typeof(payload) == 'object' ? payload : {};
 
             // Convert the payload to a string
             var payloadString = JSON.stringify(payload);
@@ -107,7 +107,7 @@ handlers.sample = function(data, callback) {
 };
 
 // Not found handler
-handlers.notFound = function (data, callback) {
+handlers.notFound = function(data, callback) {
     callback(404);
 };
 
