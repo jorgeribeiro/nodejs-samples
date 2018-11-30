@@ -5,7 +5,7 @@
 
 // Dependencies
 var http = require('http');
-var https = require("https");
+var https = require('https');
 var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
 var config = require('./config');
@@ -18,7 +18,7 @@ var httpServer = http.createServer(function (req, res) {
 
 // Start the HTTP server
 httpServer.listen(config.httpPort, function() {
-    console.log("The server is listening on port " + config.httpPort);
+    console.log('The HTTP server is listening on port ' + config.httpPort);
 });
 
 // Instantiate the HTTPs server
@@ -33,7 +33,7 @@ var httpsServer = https.createServer(httpsServerOptions, function(req, res) {
 
 // Start the HTTPs
 httpsServer.listen(config.httpsPort, function () {
-    console.log("The server is listening on port " + config.httpsPort);
+    console.log('The HTTPs server is listening on port ' + config.httpsPort);
 });
 
 // All the server logic for both the http and https server
